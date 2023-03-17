@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import SignUp from "./signUp";
-import Popup from "../popUp";
+import Popup from "../components/popUp";
 
 const SignIn = () => {
   const [buttonPopup, setButtonPopup] = useState(false);
