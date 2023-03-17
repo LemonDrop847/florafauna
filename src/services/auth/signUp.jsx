@@ -9,7 +9,7 @@ import {
   import { doc, setDoc } from "firebase/firestore";
   import SignIn from "./signIn";
   import { Link } from "react-router-dom";
-  import Popup from "../popUp";
+  import Popup from "../components/popUp";
   
   const SignUp = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
@@ -30,7 +30,7 @@ import {
               name: name,
               email: email,
               photoURL: "https://i.postimg.cc/59Y74t0J/spiderman.png",
-              objects: [],
+              posts: [],
             });
             console.log("added email: " + email);
             console.log("displayName set: " + name);
@@ -51,7 +51,7 @@ import {
             name: user.displayName,
             email: user.email,
             profile: user.photoURL,
-            objects: [],
+            posts: [],
           });
           console.log("Signed up with Google:", user);
         })

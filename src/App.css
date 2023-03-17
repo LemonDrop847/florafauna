@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+.tiger{
+  background-image: url(https://i.postimg.cc/wTTBnYRg/bgpicture.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  color: white;
+  text-align: right;
+}
+.tiger h1{
+  font-size: 64px;
+}
+.tiger p{
+  font-size: 30px;
+}
+.tcontent{
+  margin: 170px;
+}
+.navbar1{
+  /* position: fixed; */
+  background: transparent;
+  height: 127px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navs{
+  text-decoration: none;
+  font-weight: 600;
+  margin: 10px;
+  font-size: 20px;
+  color: white;
+}
+.navbar1.active{
+  /* background: linear-gradient(90deg,rgb(108, 194, 2) 0%,rgb(0, 194, 74) 100%); */
+  background: rgb(0, 0, 0);
+}
+.bttn{
+  width:170px;
+  height: 55px;
+  border-radius: 17px;
+}
+#explore{
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
