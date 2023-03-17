@@ -68,9 +68,9 @@
   font-size: 20px;
   color: white;
 }
-.navbar1.active{
+.active{
   /* background: linear-gradient(90deg,rgb(108, 194, 2) 0%,rgb(0, 194, 74) 100%); */
-  background: rgb(0, 0, 0);
+  background: rgb(41, 111, 123);
 }
 .bttn{
   width:170px;
