@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/homePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CreatePost from './pages/createPost';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           
+          <Route path="/CreatePost" element={<CreatePost/>}/>
         </Routes>
       </Router>
     </div>
