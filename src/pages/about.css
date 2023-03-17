@@ -1,0 +1,21 @@
+.descr{
+
+    padding-right: 50px;
+}
+.mission{
+    padding: 15px 70px 20px 70px;
+    background-color: rgb(16, 56, 16);
+    margin-bottom: 40px;
+}
+.sdg{
+    height: 90px;
+}
+.main{
+    background-image: url(https://i.postimg.cc/mZ65DHB7/pexels-min-an-1618664.jpg);
+    padding: 120px;
+    text-align: left;
+}
+.highlight{
+    color: rgb(60, 173, 60);
+    font-size: x-large;
+}
