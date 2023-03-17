@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {useState} from 'react';
 const Navbar = () => {
     const [navbar,setNavbar]=useState(false);
-
     const changeBackground=()=>{
         // console.log(window.scrollY);
         if(window.scrollY>=160){
@@ -22,8 +21,8 @@ const Navbar = () => {
                         }} src="https://i.postimg.cc/282LYXmd/Flora-Fauna-removebg-preview-cropped.png" alt="" />
                     </div>
                 </div>
-                <div className="row" style={{
-                    marginTop:"10px"
+                <div className={navbar?"row active":"row"} style={{
+                    padding:"10px 0 10px 0"
                 }}>
                     <div className="col"><Link className="navs" to="/">Home</Link></div>
                     <div className="col"><Link className="navs" to="/about">About</Link></div>
