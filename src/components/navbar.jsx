@@ -54,12 +54,7 @@ const Navbar = () => {
           </div>
           <div className="col">
             {user && (
-              <img
-                id="user"
-                src="https://i.postimg.cc/pdHmrmct/user.png"
-                alt=""
-                onClick={signOutUser}
-              />
+              <img id="user" src={user.photoURL} alt="" onClick={signOutUser} />
             )}
             {!user && (
               <Button onClick={() => setButtonPopup(true)}>SignIn</Button>
