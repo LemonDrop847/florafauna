@@ -8,7 +8,7 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
-import Post from "../services/components/postView";
+import Post from "../components/postView";
 
 function MyPosts() {
   const [postIds, setPostIds] = useState([]);
@@ -32,12 +32,15 @@ function MyPosts() {
   useEffect(() => {
     const fetchPosts = async () => {
       if (postIds.length > 0) {
-        const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
-        const querySnapshot = await getDocs(q);
         const fetchedPosts = [];
-        querySnapshot.forEach((doc) => {
-          fetchedPosts.push({ id: doc.id, ...doc.data() });
-        });
+        for (const postId of postIds) {
+          const postDocRef = doc(db, "posts", postId);
+          const postDoc = await getDoc(postDocRef);
+          if (postDoc.exists()) {
+            const post = { id: postDoc.id, ...postDoc.data() };
+            fetchedPosts.push(post);
+          }
+        }
         setPosts(fetchedPosts);
       } else {
         setPosts([]);
