@@ -17,7 +17,7 @@ const Navbar = () => {
     }
     window.addEventListener("scroll",changeBackground);
     return ( 
-        <>
+        <div className="container-fluid">
             <div className={navbar?'navbar1 active':'navbar1'}>
                 <div className="row">
                     <div className="col">
@@ -41,7 +41,7 @@ const Navbar = () => {
             <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
                 <SignIn />
             </Popup>
-        </>
+        </div>
      );
 }
  

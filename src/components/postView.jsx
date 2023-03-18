@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import PostDetails from "./postDetails";
 import Popup from "./popUp";
+import PostDetails from "./postDetails";
 
 function Post({ post }) {
   const [showDetails, setShowDetails] = useState(false);
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   const handlePostClick = () => {
     setShowDetails(true);
   };
 
   return (
-    <div onClick={handlePostClick}>
+    <div onClick={()=>setButtonPopup(true)}>
       {post.images && post.images.length > 0 && (
         <img
           src={post.images[0]}
@@ -22,9 +23,12 @@ function Post({ post }) {
       <p>{post.location}</p>
       <p>By {post.username}</p>
       
-      {showDetails && (
-        <PostDetails post={post} onClose={() => setShowDetails(false)} />
-      )}
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+        {/* {showDetails && ( */}
+          <PostDetails post={post} onClose={() => setShowDetails(false)} />
+        {/* )} */}
+      </Popup>
+      
     </div>
   );
 }
