@@ -12,14 +12,20 @@ const About = () => {
                 <h1 style={{color:"#FFFFFF"}}>Our <span style={{color:"rgb(60, 173, 60)"}}>mission</span></h1>
                 <p style={{color:"#FFFFFF"}}>We aim to spread awareness to protect <em> all species</em> of the ecosystem</p>
         </div>
-        <div>
-            <img src='https://i.postimg.cc/XJKLVR2H/Png-Item-279070.png' style={{height:"80px"}}></img>
-            <p><strong><span style={{color:"rgb(60, 173, 60)"}}>FloraFauna</span></strong> targets the following Sustainability Development Goals</p>
-            <div className='sdg'>
-                <img src='https://i.postimg.cc/LXh4RS6R/E-PRINT-14.jpg' style={{height:"100px"}}/>
-                <img src='https://i.postimg.cc/mrKZbqcH/E-PRINT-15.jpg' style={{height:"100px"}}/>
+        <div className="row">
+                <div className="col">
+
+                <img src='https://i.postimg.cc/XJKLVR2H/Png-Item-279070.png' style={{height:"80px"}}></img>
+                </div>
+                <div className="col">
+
+                <p><strong><span style={{color:"rgb(60, 173, 60)"}}>FloraFauna</span></strong> targets the following Sustainability Development Goals</p>
+                </div>
+                <div className='col sdg'>
+                    <img src='https://i.postimg.cc/LXh4RS6R/E-PRINT-14.jpg' style={{height:"100px"}}/>
+                    <img src='https://i.postimg.cc/mrKZbqcH/E-PRINT-15.jpg' style={{height:"100px"}}/>
+                </div>
             </div>
-        </div>
         </>        
      );
 }

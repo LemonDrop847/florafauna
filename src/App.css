@@ -98,7 +98,8 @@
 .postCard{
   margin: 3rem;
   padding: 10px;
-  border: 2px solid black;
+  border-radius: 5px;
+  border: 1px solid #005914;
   box-shadow: 2px 4px #005914;
   text-align: left;
 }
