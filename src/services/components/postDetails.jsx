@@ -16,8 +16,8 @@ function PostDetails({ post, onClose }) {
       <div>
         <h2>{post.name}</h2>
         <p>{post.location}</p>
-        <p>By {post.user.username}</p>
-        <p>{post.description}</p>
+        <p>By{post.name}</p>
+        <p>{post.caption}</p>
       </div>
     </div>
   );
