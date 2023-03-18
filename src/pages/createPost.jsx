@@ -62,6 +62,7 @@ const CreatePost = () => {
     const postRef = await addDoc(collection(db, "posts"), {
       name: name,
       user: auth.currentUser.uid,
+      username: auth.currentUser.displayName,
       caption: caption,
       location: location,
       images: imageUrls,
