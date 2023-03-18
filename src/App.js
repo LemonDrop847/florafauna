@@ -15,9 +15,9 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/Feed" element={<PostFeed/>}/>
-          <Route path="/MyPosts" element={<MyPosts/>}/>
-          <Route path="/CreatePost" element={<CreatePost/>}/>
+          <Route exact path="/Feed" element={<PostFeed/>}/>
+          <Route exact path="/MyPosts" element={<MyPosts/>}/>
+          <Route exact path="/CreatePost" element={<CreatePost/>}/>
         </Routes>
       </Router>
     </div>

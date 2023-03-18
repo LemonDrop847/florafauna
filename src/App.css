@@ -42,7 +42,7 @@
   background-size: cover;
   height: 900px;
   color: white;
-  text-align: right;
+  /* text-align: right; */
 }
 .tiger h1{
   font-size: 64px;
@@ -52,11 +52,12 @@
 }
 .tcontent{
   margin: 170px;
+  text-align: right;
 }
 .navbar1{
   /* position: fixed; */
   background: transparent;
-  height: 127px;
+  height: 68px;
   /* position: sticky; */
   top: 0;
   z-index: 100;
@@ -80,5 +81,17 @@
 #explore{
   font-size: 20px;
   font-weight: 700;
+  background-color: white;
   color: #005914;
+}
+#sign{
+  background-color: #5CAA6D;
+  /* border: #4F69EE; */
+  color: #fff;
+}
+#user{
+  padding-top: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 17px;
 }
