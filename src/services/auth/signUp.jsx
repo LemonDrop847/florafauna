@@ -9,7 +9,7 @@ import {
   import { doc, setDoc } from "firebase/firestore";
   import SignIn from "./signIn";
   import { Link } from "react-router-dom";
-  import Popup from "../components/popUp";
+  import Popup from "../../components/popUp";
   
   const SignUp = () => {
     const [buttonPopup, setButtonPopup] = useState(false);

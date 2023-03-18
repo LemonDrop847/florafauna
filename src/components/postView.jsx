@@ -13,15 +13,22 @@ function Post({ post }) {
   return (
     <div onClick={handlePostClick}>
       {post.images && post.images.length > 0 && (
-        <img src={post.images[0]} alt="Post" style={{ maxWidth: "100%", maxHeight: "300px" }} />
+        <img
+          src={post.images[0]}
+          alt="Post"
+          style={{ maxWidth: "100%", maxHeight: "300px" }}
+        />
       )}
       <h2>{post.name}</h2>
       <p>{post.location}</p>
       <p>By {post.username}</p>
+      
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                {/* <SignIn /> */}
-          {showDetails && <PostDetails post={post} onClose={() => setShowDetails(false)} />}
+        {showDetails && (
+          <PostDetails post={post} onClose={() => setShowDetails(false)} />
+        )}
       </Popup>
+      
     </div>
   );
 }
