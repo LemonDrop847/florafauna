@@ -57,7 +57,7 @@ const Navbar = () => {
               <img id="user" src={user.photoURL} alt="" onClick={signOutUser} />
             )}
             {!user && (
-              <Button onClick={() => setButtonPopup(true)}>SignIn</Button>
+              <Button style={{marginTop:"10px"}} className="btn btn-success" onClick={() => setButtonPopup(true)}>SignIn</Button>
             )}
           </div>
         </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
 import Post from "../components/postView";
+import "./myPost.css";
 
 function MyPosts() {
   const [postIds, setPostIds] = useState([]);
@@ -42,10 +43,16 @@ function MyPosts() {
   }, [postIds]);
 
   return (
-    <div>
+    <div className="myPosts">
+      <div className="row" style={{paddingTop:"5rem"}}>
+
       {posts.map((post) => (
+        <div className="col-3 postCard">
+
         <Post key={post.id} post={post} />
+        </div>
       ))}
+      </div>
     </div>
   );
 }
