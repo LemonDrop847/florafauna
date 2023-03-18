@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { db } from "../services/firebase";
 import { onSnapshot, collection, orderBy } from "firebase/firestore";
-import Post from "../services/components/postView";
+import Post from "../components/postView";
 function PostFeed() {
   const [posts, setPosts] = useState([]);
 
