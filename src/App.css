@@ -40,15 +40,15 @@
   background-image: url(https://i.postimg.cc/wTTBnYRg/bgpicture.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 900px;
+  height: 600px;
   color: white;
   /* text-align: right; */
 }
 .tiger h1{
-  font-size: 64px;
+  font-size: 60px;
 }
 .tiger p{
-  font-size: 30px;
+  font-size: 20px;
 }
 .tcontent{
   margin: 170px;
@@ -57,7 +57,7 @@
 .navbar1{
   /* position: fixed; */
   background: transparent;
-  height: 68px;
+  height: 60px;
   /* position: sticky; */
   top: 0;
   z-index: 100;
