@@ -1,4 +1,8 @@
-import { signInWithEmailAndPassword, signInWithPopup ,GoogleAuthProvider} from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
@@ -21,7 +25,7 @@ const SignIn = () => {
       });
   };
   const signInWithGoogle = () => {
-    const provider= new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
@@ -43,7 +47,7 @@ const SignIn = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <br />
-        <label >Password</label>
+        <label>Password</label>
         <input
           type="password"
           placeholder="Enter your password"
@@ -51,17 +55,31 @@ const SignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
-        <button type="submit" id="sign">Log In</button>
+        <button type="submit" id="sign">
+          Log In
+        </button>
         <br />
       </form>
-      
-      <span>or Login using <img src="https://i.postimg.cc/N00XbhCD/icons8-google-48.png" onClick={signInWithGoogle} alt="" /></span>
+
+      <span>
+        or Login using{" "}
+        <img
+          src="https://i.postimg.cc/N00XbhCD/icons8-google-48.png"
+          onClick={signInWithGoogle}
+          alt=""
+        />
+      </span>
       <br />
-      
-      <span>New User?<Link to="#" onClick={()=>setButtonPopup(true)}>Register Here</Link></span>
+
+      <span>
+        New User?
+        <Link to="#" onClick={() => setButtonPopup(true)}>
+          Register Here
+        </Link>
+      </span>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <SignUp/>
-                </Popup>
+        <SignUp />
+      </Popup>
     </div>
   );
 };
