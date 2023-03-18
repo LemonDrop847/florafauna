@@ -4,9 +4,9 @@ import { Carousel } from "react-bootstrap";
 function PostDetails({ post, onClose }) {
   return (
     <div className="container">
-    <div className="row">
-      <div className="col">
-        <Carousel>
+    <div className="row" style={{margin:"20px 20px 20px 0"}}>
+      <div className="col-8">
+        <Carousel >
           {post.images &&
             post.images.map((image, index) => (
               <Carousel.Item key={index}>
