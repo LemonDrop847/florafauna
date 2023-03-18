@@ -5,7 +5,7 @@ const About = () => {
         <>
         <div className="main">
             <h1 style={{color:"rgb(23, 91, 23)"}}>Why <span style={{color:"rgb(60, 173, 60)"}}>Flora</span>Fauna?</h1>
-            <p className="descr"> FloraFauna is a web development project which aims to create  <span className='highlight'>  awareness  </span> amongst people to appreciate the <span className='highlight'>  mother nature  </span> for all the beauty it brings to us. Peole can show the world,what nature means through their lens. Here you can share your experience of visiting any  <span className='highlight'>natural ecosystem</span> and what attracted you the most their. Tell us the  <span className='highlight'>secrets of nature</span> that you have uncovered.</p>
+            <p className="descr"> FloraFauna is a web development project which aims to create  <span className='highlight'>  awareness  </span> amongst people to appreciate the <span className='highlight'>  mother nature  </span> for all the beauty it brings to us. People can show the world,what nature means through their lens. Here you can share your experience of visiting any  <span className='highlight'>natural ecosystem</span> and what attracted you the most their. Tell us the  <span className='highlight'>secrets of nature</span> that you have uncovered.</p>
 
         </div>
         <div class="mission">
