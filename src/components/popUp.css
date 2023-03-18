@@ -32,7 +32,8 @@
     position: relative;
     padding: 32px;
     width: 100%;
-    max-width: 700px;
+    max-height: 90%;
+    max-width: 1000px;
     border-radius: 8px;
     color: black;
     background-color: #85b690;
