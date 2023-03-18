@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 
-function PostDetails({ post, onClose }) {
+function PostDetails({ post }) {
   return (
     <div className="container">
     <div className="row" style={{margin:"20px 20px 20px 0"}}>
