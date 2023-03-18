@@ -6,6 +6,7 @@ import Home from './pages/homePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CreatePost from './pages/createPost';
 import PostFeed from './pages/postFeed';
+import MyPosts from './pages/myPosts';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/Feed" element={<PostFeed/>}/>
-          
+          <Route path="/MyPosts" element={<MyPosts/>}/>
           <Route path="/CreatePost" element={<CreatePost/>}/>
         </Routes>
       </Router>
