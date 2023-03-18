@@ -2,7 +2,13 @@ import { useState } from "react";
 import withAuth from "../services/auth/authCheck";
 import { storage, db, auth } from "../services/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { collection, doc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  addDoc,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
 import { Form, Button, Carousel } from "react-bootstrap";
 
 const CreatePost = () => {
@@ -53,7 +59,7 @@ const CreatePost = () => {
       })
     );
 
-    await setDoc(doc(collection(db, "posts")), {
+    const postRef = await addDoc(collection(db, "posts"), {
       name: name,
       user: auth.currentUser.uid,
       caption: caption,
@@ -62,13 +68,18 @@ const CreatePost = () => {
       timestamp: new Date().toISOString(),
     });
 
+    const userRef = doc(db, "users", auth.currentUser.uid);
+
+    await updateDoc(userRef, {
+      posts: arrayUnion(postRef.id),
+    });
+
     setName("");
     setCaption("");
     setLocation("");
     setImages([]);
     setPreviewUrls([]);
   };
-
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="name">
