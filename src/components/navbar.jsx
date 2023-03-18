@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
+import SignIn from "../services/auth/signIn";
 import {useState} from 'react';
+import Popup from "./popUp";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+    const [buttonPopup, setButtonPopup] = useState(false);
     const [navbar,setNavbar]=useState(false);
+    const navigate=useNavigate();
     const changeBackground=()=>{
         // console.log(window.scrollY);
         if(window.scrollY>=160){
@@ -12,13 +17,16 @@ const Navbar = () => {
     }
     window.addEventListener("scroll",changeBackground);
     return ( 
-        // <nav className="navbar">
+        <>
             <div className={navbar?'navbar1 active':'navbar1'}>
                 <div className="row">
                     <div className="col">
                         <img style={{
-                            height:"127px"
-                        }} src="https://i.postimg.cc/282LYXmd/Flora-Fauna-removebg-preview-cropped.png" alt="" />
+                            height:"80px"
+                        }} onClick={()=>navigate("/")} src="https://i.postimg.cc/282LYXmd/Flora-Fauna-removebg-preview-cropped.png" alt="" />
+                    </div>
+                    <div className="col" onClick={()=>setButtonPopup(true)}>
+                        <img id="user"src="https://i.postimg.cc/pdHmrmct/user.png" alt="" />
                     </div>
                 </div>
                 <div className={navbar?"row active":"row"} style={{
@@ -30,7 +38,10 @@ const Navbar = () => {
                     <div className="col"><Link className="navs" to="/MyPosts">My Posts</Link></div>
                 </div>
             </div>
-        // </nav> 
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                <SignIn />
+            </Popup>
+        </>
      );
 }
  
