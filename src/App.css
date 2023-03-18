@@ -89,6 +89,23 @@
   /* border: #4F69EE; */
   color: #fff;
 }
+#add-icon{
+  margin-right: 2rem;
+  float: right;
+  width: 80px;
+  height: 80px;
+}
+.postCard{
+  margin: 3rem;
+  padding: 10px;
+  border: 2px solid black;
+  box-shadow: 2px 4px #005914;
+  text-align: left;
+}
+.postCard:hover{
+  background-color: #07f73b24;
+  box-shadow: 3px 4px 2px #005914;
+}
 #user{
   padding-top: 10px;
   width: 50px;
