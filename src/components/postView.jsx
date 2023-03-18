@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SignIn from "../services/auth/signIn";
 import Popup from "./popUp";
 import PostDetails from "./postDetails";
 
@@ -9,9 +10,11 @@ function Post({ post }) {
   const handlePostClick = () => {
     setShowDetails(true);
   };
-
+  // console.log(buttonPopup);
   return (
-    <div onClick={()=>setButtonPopup(true)}>
+    <div onClick={()=>{
+      setButtonPopup(true);
+      }}>
       {post.images && post.images.length > 0 && (
         <img
           src={post.images[0]}
@@ -24,11 +27,9 @@ function Post({ post }) {
       <p>By {post.username}</p>
       
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-        {/* {showDetails && ( */}
-          <PostDetails post={post} onClose={() => setShowDetails(false)} />
-        {/* )} */}
+      {/* <SignIn/> */}
+        <PostDetails post={post} onClose={() => setShowDetails(false)} />
       </Popup>
-      
     </div>
   );
 }
