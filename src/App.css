@@ -56,6 +56,7 @@
 }
 .navbar1{
   /* position: fixed; */
+  margin-top: 10px;
   background: transparent;
   height: 60px;
   /* position: sticky; */
@@ -98,7 +99,8 @@
 .postCard{
   margin: 3rem;
   padding: 10px;
-  border: 2px solid black;
+  border-radius: 5px;
+  border: 1px solid #005914;
   box-shadow: 2px 4px #005914;
   text-align: left;
 }
@@ -107,8 +109,8 @@
   box-shadow: 3px 4px 2px #005914;
 }
 #user{
-  padding-top: 10px;
+  /* padding-top: 10px; */
   width: 50px;
   height: 50px;
-  border-radius: 17px;
+  border-radius: 100px;
 }
