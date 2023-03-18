@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  collection,
-  query,
-  getDocs,
-  orderBy,
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
 import Post from "../components/postView";
 
@@ -19,7 +12,6 @@ function MyPosts() {
       const userDocRef = doc(db, "users", auth.currentUser.uid);
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
-        
         const userData = userDoc.data();
         if (userData.posts) {
           setPostIds(userData.posts);
