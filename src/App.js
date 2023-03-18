@@ -17,7 +17,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route exact path="/about" element={<About/>}/>
-          
           <Route path="/Feed" element={<PostFeed/>}/>
           <Route path="/MyPosts" element={<MyPosts/>}/>
           <Route path="/CreatePost" element={<CreatePost/>}/>
