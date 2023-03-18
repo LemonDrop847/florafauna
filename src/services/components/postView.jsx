@@ -15,7 +15,7 @@ function Post({ post }) {
       )}
       <h2>{post.name}</h2>
       <p>{post.location}</p>
-      <p>By {post.user.displayName}</p>
+      <p>By {post.username}</p>
       {showDetails && <PostDetails post={post} onClose={() => setShowDetails(false)} />}
     </div>
   );
