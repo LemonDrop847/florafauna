@@ -1,0 +1,9 @@
+.myPosts{
+    background-image: url(https://i.postimg.cc/wTTBnYRg/bgpicture.jpg);
+    background-repeat: no-repeat;
+    /* background: fixed; */
+    background-size: cover;
+    /* height: 600px; */
+    color: white;
+    /* text-align: right; */
+  }
