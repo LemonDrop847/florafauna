@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SignIn from "../services/auth/signIn";
 import SignUp from "../services/auth/signUp";
@@ -13,7 +14,9 @@ const Home = () => {
                 <p>Join us to explore the various attributes of natural environment. Let the world view nature through your lens and watch what others discover. </p>
                 <button class="bttn" id="explore">Explore</button>
             </div>
+            <Link to="/Feed">Feed</Link>
         </div>
+        
      );
 }
  
