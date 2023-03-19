@@ -37,18 +37,15 @@ function NameGetter() {
         image_url: imageUrl,
       });
       console.log(bodyContent);
-      let apiResponse = await fetch(
-        "https://lemondrop-classifier.up.railway.app/classify",
-        {
-          method: "POST",
-          body: bodyContent,
-          headers: headersList,
-        }
-      );
+      let apiResponse = await fetch("https://ab56-117-216-126-78.in.ngrok.io/classify", { 
+        method: "POST",
+        body: bodyContent,
+        headers: headersList
+      });
 
       const data = await apiResponse.json();
 
-      setResult(data.predictions);
+      setResult(data.predictions[0].class);
       setError(null);
     } catch (error) {
       setResult(null);
@@ -72,15 +69,15 @@ function NameGetter() {
 
       {imageUrl && (
         <div>
-          <h3>Image URL:</h3>
-          <pre>{imageUrl}</pre>
+          <h5>Uploaded Successfully! </h5>
+          
         </div>
       )}
 
       {result && (
         <div>
-          <h3>Result:</h3>
-          <pre>{JSON.stringify(result, null, 2)}</pre>
+          <h2>Result:</h2>
+          <h5>{JSON.stringify(result, null, 2)}</h5>
         </div>
       )}
 
