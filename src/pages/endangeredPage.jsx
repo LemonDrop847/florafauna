@@ -23,7 +23,7 @@ function EndangeredPage() {
   }, []);
 
   return (
-    <div className="row" id="endangered" style={{marginTop:"2rem"}}>
+    <div className="row" id="endangered" >
       {posts.map((post) => (
         <div className="col-3 postCard" key={post.id}>
           <Post post={post} />
