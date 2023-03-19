@@ -1,31 +1,66 @@
-import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
+import { storage } from "../services/firebase";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 function NameGetter() {
-  const [imageUrl, setImageUrl] = useState('');
+  const [file, setFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
 
-  const handleUrlChange = (e) => {
-    setImageUrl(e.target.value);
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+
+    if (!file) {
+      setError("Please select a file.");
+      return;
+    }
+
+    const storageRef = ref(storage, `NameGetter/${file.name}`);
+    await uploadBytes(storageRef, file);
+    const downloadUrl = await getDownloadURL(storageRef);
+    setImageUrl(downloadUrl);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!imageUrl) {
+      setError("Please upload an image.");
+      return;
+    }
+
     try {
-      const response = await fetch('http://example.com/api', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ imageUrl }),
+      const headersList = {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+      };
+
+      const bodyContent = JSON.stringify({
+        image_url: imageUrl,
       });
-      const data = await response.json();
-      setResult(data);
+
+      const apiResponse = await fetch(
+        "https://lemondrop-classifier.up.railway.app/classify",
+        {
+          method: "POST",
+          body: bodyContent,
+          headers: headersList,
+        }
+      );
+
+      const data = await apiResponse.json();
+
+      setResult(data.predictions[0].class);
       setError(null);
     } catch (error) {
       setResult(null);
+      setImageUrl("");
       setError(error.message);
     }
   };
@@ -33,10 +68,12 @@ function NameGetter() {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
-        <Form.Label>Enter the URL of an image</Form.Label>
-        <Form.Control type="text" value={imageUrl} onChange={handleUrlChange} />
+        <Form.Label>Upload an image</Form.Label>
+        <Form.Control type="file" onChange={handleFileChange} />
       </Form.Group>
-
+      <Button variant="primary" onClick={handleUpload}>
+        Upload
+      </Button>
       <Button variant="primary" type="submit">
         Submit
       </Button>
