@@ -38,7 +38,7 @@ function NameGetter() {
         image_url: imageUrl,
       });
       console.log(bodyContent);
-      let apiResponse = await fetch("https://ab56-117-216-126-78.in.ngrok.io/classify", { 
+      let apiResponse = await fetch("http://localhost:5000/classify", { 
         method: "POST",
         body: bodyContent,
         headers: headersList
