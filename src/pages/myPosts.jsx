@@ -3,6 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
 import Post from "../components/postView";
 import "./myPost.css";
+import withAuth from "../services/auth/authCheck";
 
 function MyPosts() {
   const [postIds, setPostIds] = useState([]);
@@ -57,4 +58,4 @@ function MyPosts() {
   );
 }
 
-export default MyPosts;
+export default withAuth(MyPosts);

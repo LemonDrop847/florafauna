@@ -1,5 +1,3 @@
-// import { Button } from "react-bootstrap";
-// import { Link } from "react-router-dom";
 import Popup from "../components/popUp";
 import SignIn from "../services/auth/signIn";
 // import SignUp from "../services/auth/signUp";
