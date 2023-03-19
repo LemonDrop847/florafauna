@@ -103,7 +103,7 @@ const CreatePost = () => {
         <Form.Group controlId="caption">
           <Form.Label>Caption:</Form.Label>
           <Form.Control
-            style={{height: '80px'}}
+            style={{height: '70px'}}
             as="textarea"
             rows={1}
             value={caption}
