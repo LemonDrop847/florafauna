@@ -74,7 +74,7 @@ const CreatePost = () => {
       location: location,
       images: imageUrls,
       timestamp: new Date().toISOString(),
-      isendgr: isEndgr, // include isEndgr in the Firestore document
+      isendgr: isEndgr,
     });
 
     const userRef = doc(db, "users", auth.currentUser.uid);
@@ -88,7 +88,7 @@ const CreatePost = () => {
     setLocation("");
     setImages([]);
     setPreviewUrls([]);
-    setIsEndgr(false); // reset the checkbox
+    setIsEndgr(false);
   };
 
   return (
