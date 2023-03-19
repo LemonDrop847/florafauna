@@ -102,7 +102,7 @@
   border-radius: 5px;
   background-color: rgba(179, 255, 179, 0.132);
   border: 1px solid #005914;
-  box-shadow: 2px 4px #005914;
+  box-shadow: 3px 4px #00591342;
   text-align: left;
 }
 .postCard:hover{
