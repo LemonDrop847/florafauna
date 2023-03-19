@@ -29,9 +29,10 @@ function NameGetter() {
 
     try {
       let headersList = {
-        Accept: "*/*",
-        "Content-Type": "application/json",
-      };
+        "Accept": "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        "Content-Type": "application/json"
+       }
 
       let bodyContent = JSON.stringify({
         image_url: imageUrl,
