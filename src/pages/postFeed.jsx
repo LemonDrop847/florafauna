@@ -21,11 +21,10 @@ function PostFeed() {
   }, []);
 
   return (
-    <div className='row'>
+    <div className="row">
       {posts.map((post) => (
         <div className="col-3 postCard">
-
-        <Post key={post.id} post={post} />
+          <Post key={post.id} post={post} />
         </div>
       ))}
     </div>
