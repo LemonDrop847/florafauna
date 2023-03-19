@@ -23,7 +23,7 @@ function Post({ post }) {
 
       <Popup trigger={showDetails} setTrigger={setShowDetails}>
         {/* <SignIn/> */}
-        <PostDetails post={post} onClose={() => setShowDetails(false)} />
+        <PostDetails post={post} />
       </Popup>
     </div>
   );
