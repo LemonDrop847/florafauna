@@ -10,22 +10,13 @@ function NameGetter() {
   const [error, setError] = useState(null);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
+  setFile(e.target.files[0]);
+};
   const handleUpload = async (e) => {
-    e.preventDefault();
-
-    if (!file) {
-      setError("Please select a file.");
-      return;
-    }
-
-    const storageRef = ref(storage, `NameGetter/${file.name}`);
+    const storageRef = ref(storage, `imagesearch/${file.name}`);
     await uploadBytes(storageRef, file);
     const downloadUrl = await getDownloadURL(storageRef);
     setImageUrl(downloadUrl);
-    console.log(imageUrl)
   };
 
   const handleSubmit = async (e) => {
@@ -37,16 +28,16 @@ function NameGetter() {
     }
 
     try {
-      const headersList = {
+      let headersList = {
         Accept: "*/*",
         "Content-Type": "application/json",
       };
 
-      const bodyContent = JSON.stringify({
+      let bodyContent = JSON.stringify({
         image_url: imageUrl,
       });
-
-      const apiResponse = await fetch(
+      console.log(bodyContent);
+      let apiResponse = await fetch(
         "https://lemondrop-classifier.up.railway.app/classify",
         {
           method: "POST",
@@ -57,7 +48,7 @@ function NameGetter() {
 
       const data = await apiResponse.json();
 
-      setResult(data.predictions[0].class);
+      setResult(data.predictions);
       setError(null);
     } catch (error) {
       setResult(null);
@@ -78,6 +69,13 @@ function NameGetter() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+
+      {imageUrl && (
+        <div>
+          <h3>Image URL:</h3>
+          <pre>{imageUrl}</pre>
+        </div>
+      )}
 
       {result && (
         <div>

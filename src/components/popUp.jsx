@@ -1,6 +1,5 @@
 import "./popUp.css";
 const Popup = (props) => {
-    console.log(props.trigger);
     return (props.trigger)? ( 
         <div className="popup">
             <div className="popup-inner">

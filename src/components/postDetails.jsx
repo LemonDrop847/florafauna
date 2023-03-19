@@ -5,7 +5,7 @@ function PostDetails({ post }) {
   return (
     <div className="container">
     <div className="row" style={{margin:"20px 20px 20px 0"}}>
-      <div className="col-8">
+      <div className="col-7">
         <Carousel >
           {post.images &&
             post.images.map((image, index) => (
@@ -15,7 +15,7 @@ function PostDetails({ post }) {
             ))}
         </Carousel>
       </div>
-      <div className="col-3">
+      <div className="col-5">
         <h2>{post.name}</h2>
           <p>{post.location}</p>
           <p>By {post.username}</p>
