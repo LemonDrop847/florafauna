@@ -10,6 +10,8 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { Form, Button, Carousel } from "react-bootstrap";
+import Popup from "../components/popUp";
+import NameGetter from "../components/nameGet";
 
 const CreatePost = () => {
   const [name, setName] = useState("");
@@ -17,6 +19,7 @@ const CreatePost = () => {
   const [location, setLocation] = useState("");
   const [images, setImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -91,6 +94,7 @@ const CreatePost = () => {
           onChange={handleNameChange}
           required
         />
+        
       </Form.Group>
       <Form.Group controlId="caption">
         <Form.Label>Caption:</Form.Label>
