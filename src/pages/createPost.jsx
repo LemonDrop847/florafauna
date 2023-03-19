@@ -85,72 +85,79 @@ const CreatePost = () => {
     setPreviewUrls([]);
   };
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="name">
-        <Form.Label>Name:</Form.Label>
-        <Form.Control
-          type="text"
-          value={name}
-          onChange={handleNameChange}
-          required
-        />
-        
-      </Form.Group>
-      <Form.Group controlId="caption">
-        <Form.Label>Caption:</Form.Label>
-        <Form.Control
-          type="text"
-          value={caption}
-          onChange={handleCaptionChange}
-          required
-        />
-      </Form.Group>
-      <Form.Group controlId="location">
-        <Form.Label>Location:</Form.Label>
-        <Form.Control
-          type="text"
-          value={location}
-          onChange={handleLocationChange}
-          required
-        />
-      </Form.Group>
-      <Form.Group controlId="image">
-        <Form.Label>Images:</Form.Label>
-        <Form.Control
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          multiple
-          required
-        />
-      </Form.Group>
-      {previewUrls.length > 0 && (
-        <Carousel>
-          {previewUrls.map((url, index) => (
-            //   <div key={index} style={{ height: "300px", overflow: "hidden" }}>
-            <Carousel.Item>
-              <img
-                src={url}
-                alt="Preview"
-                style={{ width: "40%", height: "200px" }}
-              />
-              <Carousel.Caption>
-                <Button
-                  variant="danger"
-                  onClick={() => handleRemoveImage(index)}
-                >
-                  Remove
-                </Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            //   </div>
-          ))}
-        </Carousel>
-      )}
-      <Button variant="primary" type="submit">
-        Post
-      </Button>
-    </Form>
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="name">
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            required
+          />
+          Get the name{" "}
+          <Button onClick={() => setButtonPopup(true)}>here</Button>.
+          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <NameGetter />
+          </Popup>
+        </Form.Group>
+        <Form.Group controlId="caption">
+          <Form.Label>Caption:</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            value={caption}
+            onChange={handleCaptionChange}
+            required
+          />
+        </Form.Group>
+        <Form.Group controlId="location">
+          <Form.Label>Location:</Form.Label>
+          <Form.Control
+            type="text"
+            value={location}
+            onChange={handleLocationChange}
+            required
+          />
+        </Form.Group>
+        <Form.Group controlId="image">
+          <Form.Label>Images:</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            multiple
+            required
+          />
+        </Form.Group>
+        {previewUrls.length > 0 && (
+          <Carousel>
+            {previewUrls.map((url, index) => (
+              //   <div key={index} style={{ height: "300px", overflow: "hidden" }}>
+              <Carousel.Item>
+                <img
+                  src={url}
+                  alt="Preview"
+                  style={{ width: "40%", height: "200px" }}
+                />
+                <Carousel.Caption>
+                  <Button
+                    variant="danger"
+                    onClick={() => handleRemoveImage(index)}
+                  >
+                    Remove
+                  </Button>
+                </Carousel.Caption>
+              </Carousel.Item>
+              //   </div>
+            ))}
+          </Carousel>
+        )}
+        <Button variant="primary" type="submit">
+          Post
+        </Button>
+      </Form>
+    </div>
   );
 };
 
