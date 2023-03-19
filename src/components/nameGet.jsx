@@ -25,6 +25,7 @@ function NameGetter() {
     await uploadBytes(storageRef, file);
     const downloadUrl = await getDownloadURL(storageRef);
     setImageUrl(downloadUrl);
+    console.log(imageUrl)
   };
 
   const handleSubmit = async (e) => {
