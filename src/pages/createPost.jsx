@@ -12,6 +12,7 @@ import {
 import { Form, Button, Carousel } from "react-bootstrap";
 import Popup from "../components/popUp";
 import NameGetter from "../components/nameGet";
+import {Link} from "react-router-dom";
 
 const CreatePost = () => {
   const [name, setName] = useState("");
@@ -96,7 +97,8 @@ const CreatePost = () => {
             required
           />
           Get the name{" "}
-          <Button onClick={() => setButtonPopup(true)}>here</Button>.
+          <Link onClick={() => setButtonPopup(true)}>here</Link>.
+          {/* <Button >here</Button>. */}
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <NameGetter />
           </Popup>
@@ -104,8 +106,9 @@ const CreatePost = () => {
         <Form.Group controlId="caption">
           <Form.Label>Caption:</Form.Label>
           <Form.Control
+            style={{height: '80px'}}
             as="textarea"
-            rows={3}
+            rows={1}
             value={caption}
             onChange={handleCaptionChange}
             required
