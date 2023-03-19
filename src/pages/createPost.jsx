@@ -11,7 +11,7 @@ import {
 import { Form, Button, Carousel } from "react-bootstrap";
 import Popup from "../components/popUp";
 import NameGetter from "../components/nameGet";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CreatePost = () => {
   const [name, setName] = useState("");
@@ -20,6 +20,7 @@ const CreatePost = () => {
   const [images, setImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [isEndgr, setIsEndgr] = useState(false); // new state variable
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -50,6 +51,10 @@ const CreatePost = () => {
     setPreviewUrls(newUrls);
   };
 
+  // const handleEndgrChange = (event) => {
+  //   setIsEndgr(event.target.checked);
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -69,6 +74,7 @@ const CreatePost = () => {
       location: location,
       images: imageUrls,
       timestamp: new Date().toISOString(),
+      isendgr: isEndgr, // include isEndgr in the Firestore document
     });
 
     const userRef = doc(db, "users", auth.currentUser.uid);
@@ -82,9 +88,12 @@ const CreatePost = () => {
     setLocation("");
     setImages([]);
     setPreviewUrls([]);
+    setIsEndgr(false); // reset the checkbox
   };
+
   return (
-    <div>
+    <div style={{ height: '400px', overflowY: 'scroll', overflowX: 'hidden' }}>
+      <h3>Share Your Photos</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">
           <Form.Label>Name:</Form.Label>
@@ -94,8 +103,7 @@ const CreatePost = () => {
             onChange={handleNameChange}
             required
           />
-          Get the name{" "}
-          <Link onClick={() => setButtonPopup(true)}>here</Link>.
+          Get the name <Link onClick={() => setButtonPopup(true)}>here</Link>.
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <NameGetter />
           </Popup>
@@ -103,7 +111,7 @@ const CreatePost = () => {
         <Form.Group controlId="caption">
           <Form.Label>Caption:</Form.Label>
           <Form.Control
-            style={{height: '70px'}}
+            style={{ height: "70px" }}
             as="textarea"
             rows={1}
             value={caption}
@@ -129,12 +137,21 @@ const CreatePost = () => {
             multiple
             required
           />
+          
+        </Form.Group>
+        <Form.Group controlId="isendgr">
+        <Form.Check
+            type="checkbox"
+            label="Is it endangered?"
+            checked={isEndgr}
+            onChange={() => setIsEndgr(!isEndgr)}
+          />
+          <br/>
         </Form.Group>
         {previewUrls.length > 0 && (
           <Carousel>
             {previewUrls.map((url, index) => (
-              //   <div key={index} style={{ height: "300px", overflow: "hidden" }}>
-              <Carousel.Item>
+              <Carousel.Item key={url}>
                 <img
                   src={url}
                   alt="Preview"
@@ -149,7 +166,6 @@ const CreatePost = () => {
                   </Button>
                 </Carousel.Caption>
               </Carousel.Item>
-              //   </div>
             ))}
           </Carousel>
         )}
