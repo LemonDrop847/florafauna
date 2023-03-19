@@ -92,7 +92,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div style={{ height: '400px', overflowY: 'scroll', overflowX: 'hidden' }}>
+    <div style={{ height: "400px", overflowY: "scroll", overflowX: "hidden" }}>
       <h3>Share Your Photos</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">
@@ -103,10 +103,20 @@ const CreatePost = () => {
             onChange={handleNameChange}
             required
           />
-          Get the name <Link onClick={() => setButtonPopup(true)}>here</Link>.
-          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-            <NameGetter />
-          </Popup>
+          <div className="d-flex align-items-center justify-content-between">
+            <div style={{ marginRight: "10px" }}>
+              Get the name{" "}
+              <Link onClick={() => setButtonPopup(true)}>here</Link>.
+            </div>
+            <div style={{ marginLeft: "10px" }}>
+              <Form.Check
+                type="checkbox"
+                label="Is it endangered?"
+                checked={isEndgr}
+                onChange={() => setIsEndgr(!isEndgr)}
+              />
+            </div>
+          </div>
         </Form.Group>
         <Form.Group controlId="caption">
           <Form.Label>Caption:</Form.Label>
@@ -137,17 +147,8 @@ const CreatePost = () => {
             multiple
             required
           />
-          
         </Form.Group>
-        <Form.Group controlId="isendgr">
-        <Form.Check
-            type="checkbox"
-            label="Is it endangered?"
-            checked={isEndgr}
-            onChange={() => setIsEndgr(!isEndgr)}
-          />
-          <br/>
-        </Form.Group>
+
         {previewUrls.length > 0 && (
           <Carousel>
             {previewUrls.map((url, index) => (
@@ -173,6 +174,9 @@ const CreatePost = () => {
           Post
         </Button>
       </Form>
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+        <NameGetter />
+      </Popup>
     </div>
   );
 };
