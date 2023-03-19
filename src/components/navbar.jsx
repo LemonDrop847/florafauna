@@ -78,7 +78,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="col">
-            <Link className="navs" to="/">
+            <Link className="navs" to="/endangered">
               Who's Hidden
             </Link>
           </div>
