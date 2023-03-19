@@ -1,5 +1,4 @@
 import { useState } from "react";
-import withAuth from "../services/auth/authCheck";
 import { storage, db, auth } from "../services/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import {
@@ -55,11 +54,10 @@ const CreatePost = () => {
     event.preventDefault();
 
     const imageUrls = await Promise.all(
-      images.map((image) => {
+      images.map(async (image) => {
         const storageRef = ref(storage, `images/${image.name}`);
-        return uploadBytes(storageRef, image).then(() =>
-          getDownloadURL(storageRef)
-        );
+        await uploadBytes(storageRef, image);
+        return await getDownloadURL(storageRef);
       })
     );
 
@@ -98,7 +96,6 @@ const CreatePost = () => {
           />
           Get the name{" "}
           <Link onClick={() => setButtonPopup(true)}>here</Link>.
-          {/* <Button >here</Button>. */}
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <NameGetter />
           </Popup>
@@ -164,4 +161,4 @@ const CreatePost = () => {
   );
 };
 
-export default withAuth(CreatePost);
+export default CreatePost;
