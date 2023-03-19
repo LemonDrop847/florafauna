@@ -3,13 +3,33 @@
 import Popup from "../components/popUp";
 import SignIn from "../services/auth/signIn";
 // import SignUp from "../services/auth/signUp";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { getAuth } from "firebase/auth";
 import PostFeed from "./postFeed";
 import CreatePost from "./createPost";
 
 const Home = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [buttonPopup1, setButtonPopup1] = useState(false);
+    const [isLogin, setLogin] = useState(false);
+    const auth = getAuth();
+    useEffect(() => {
+        auth.onAuthStateChanged(function (user) {
+        if (user) {
+            setLogin(true);
+        } else {
+            setLogin(null);
+        }
+        });
+    }, [auth]);
+
+    const handlePost=()=>{
+        if(isLogin){
+            setButtonPopup1(true);
+        }else{
+            alert("Please login first.")
+        }
+    }
     return ( 
         <>
             <div style={{
@@ -25,7 +45,7 @@ const Home = () => {
             <div className="row">
                 <div className="col">
                     <h1 style={{margin:"1rem",color:"#005914"}}>See what's new!</h1>
-                    <img id="add-icon" onClick={()=>setButtonPopup1(true)} src="https://i.postimg.cc/zvqxwwzS/icons8-add-new-100.png" alt="" />
+                    <img id="add-icon" onClick={handlePost} src="https://i.postimg.cc/zvqxwwzS/icons8-add-new-100.png" alt="" />
                     <h3 style={{float:"right",marginTop:"20px",color:"#005914"}}>Add Post Here</h3>
                 </div>
             </div>
