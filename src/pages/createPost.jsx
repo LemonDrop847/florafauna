@@ -51,10 +51,6 @@ const CreatePost = () => {
     setPreviewUrls(newUrls);
   };
 
-  // const handleEndgrChange = (event) => {
-  //   setIsEndgr(event.target.checked);
-  // };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 

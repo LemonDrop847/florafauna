@@ -22,7 +22,6 @@ function Post({ post }) {
       <p>By {post.username}</p>
 
       <Popup trigger={showDetails} setTrigger={setShowDetails}>
-        {/* <SignIn/> */}
         <PostDetails post={post} />
       </Popup>
     </div>

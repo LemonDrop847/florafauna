@@ -26,7 +26,6 @@ function PostDetails({ post }) {
           <p>{post.caption}</p>
         </div>
       </div>
-      {/* <button onClick={onClose}>Close</button> */}
     </div>
   );
 }

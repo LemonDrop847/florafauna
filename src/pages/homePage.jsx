@@ -1,6 +1,5 @@
 import Popup from "../components/popUp";
 import SignIn from "../services/auth/signIn";
-// import SignUp from "../services/auth/signUp";
 import { useState,useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import PostFeed from "./postFeed";

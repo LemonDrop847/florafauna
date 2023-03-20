@@ -67,7 +67,6 @@
     cursor: pointer;
 }
 button{
-    /* box-shadow: 2px 2px rgb(151, 149, 149); */
     background-color: var(--second-color); 
 }
 label{
@@ -85,7 +84,6 @@ input,textarea{
     border-radius: 6px;
     width: 100%;
     padding: 6px 10px;
-    /* margin-bottom: 5px; */
     border: 1px solid #ddd;
     box-sizing: border-box;
     display: block;
