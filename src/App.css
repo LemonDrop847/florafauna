@@ -42,7 +42,6 @@
   background-size: cover;
   height: 600px;
   color: white;
-  /* text-align: right; */
 }
 .tiger h1{
   font-size: 60px;
@@ -87,7 +86,6 @@
 }
 #sign{
   background-color: #5CAA6D;
-  /* border: #4F69EE; */
   color: #fff;
 }
 #add-icon{
@@ -110,7 +108,6 @@
   box-shadow: 3px 4px 2px #005914;
 }
 #user{
-  /* padding-top: 10px; */
   width: 50px;
   height: 50px;
   border-radius: 100px;
