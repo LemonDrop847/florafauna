@@ -38,7 +38,7 @@ function NameGetter() {
         image_url: imageUrl,
       });
       console.log(bodyContent);
-      let apiResponse = await fetch("http://localhost:5000/classify", { 
+      let apiResponse = await fetch("http://<host-url>/classify", { 
         method: "POST",
         body: bodyContent,
         headers: headersList
